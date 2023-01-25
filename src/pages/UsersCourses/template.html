@@ -1,0 +1,39 @@
+<div class="courses-page col justify-center">
+  <div class="row">
+    <div v-for="course in userCourses" class="col-4 q-pa-lg">
+      <q-card :key="course.id" class="course-card q-pa-md column">
+        <q-img width="100%" height="250px" :src="course.img"/>
+        <div style="max-height: 20px" class="row q-mt-lg">
+          <div class="col-7">
+            {{course.instructor}}
+          </div>
+          <div class="col-5" dir="rtl">
+            <span class="tag">
+              {{course.tag}}
+            </span>
+          </div>
+        </div>
+        <h5>
+          {{course.title}}
+        </h5>
+        <div>
+          <q-icon name="schedule" style="color: #309255"></q-icon>
+          {{course.duration}}
+        </div>
+        <div class="course-price-box row q-mt-lg">
+          <div class="col-7">
+            <span class="text-bold" style="color: #309255">{{course.newPrice}}</span>
+            <s class="q-px-md">{{course.oldPrice}}</s>
+          </div>
+          <div class="col-5" dir="rtl">
+            <q-rating
+              v-model="course.star"
+              size="1.5em"
+            />
+          </div>
+        </div>
+      </q-card>
+    </div>
+
+  </div>
+</div>

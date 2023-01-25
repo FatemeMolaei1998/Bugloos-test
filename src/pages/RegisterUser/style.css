@@ -1,0 +1,30 @@
+.register-page {
+  padding: 50px;
+  margin: 60px;
+  border: 1px solid rgba(48,146,85,0.25);
+  border-radius: 15px;
+}
+
+.register-page .password-hints .red {
+  color: red;
+}
+
+.register-page .password-hints .green {
+  color: green;
+}
+
+.register-page .register-btn {
+  width: 100%;
+  height: 60px;
+  background: #309255;
+  color: white;
+  border-radius: 15px;
+}
+
+.register-page .google-btn {
+  width: 100%;
+  height: 60px;
+  color: #309255;
+  background: #e7f8ee;
+  border-radius: 15px;
+}

@@ -1,0 +1,68 @@
+<div class="register-page row justify-center">
+  <div class="col-6" style="padding: 5%;background: #e7f8ee">
+    <q-img fit="contain" height="500px" src="register-login.webp"/>
+  </div>
+  <div class="col-6" style="padding-left: 5%">
+    <q-card style="box-shadow: none">
+      <q-card-section>
+        <div>
+          <span class="text-h6 ellipsis">
+            Registration
+          </span>
+          <span class="text-h6 ellipsis" style="color: #20c997">
+            Now
+          </span>
+        </div>
+      </q-card-section>
+      <q-card-section>
+        <div class="col-9">
+          <q-input outlined class="q-mb-md" v-model="username"
+                   clearable :label="username ? null : 'Name'" input-class="text-center">
+          </q-input>
+          <q-select class="q-mb-md" outlined v-model="gender" :options="genderOptions" label="Gender" />
+          <q-input outlined class="q-mb-md" v-model="email"
+                   clearable :label="email ? null : 'Email'" input-class="text-center"
+                   @blur="v$.email.$touch" :error="v$.email.$error"
+                   :error-message="getEmailError">
+          </q-input>
+          <q-input outlined v-model="password.value"
+                   clearable maxlength="30" :type="(password.isPw) ? 'password' : 'text'"
+                   @blur="v$.password.value.$touch" :error="v$.password.value.$error"
+                   :error-message="getPasswordError"
+                   :label="password.value ? null : 'Password'" input-class="text-center">
+            <template v-slot:prepend>
+              <q-icon :name="(password.isPw) ? 'visibility_off' : 'visibility'"
+                      class="cursor-pointer" @click="password.isPw = !password.isPw"/>
+            </template>
+          </q-input>
+
+        </div>
+      </q-card-section>
+      <q-card-section class="password-hints row justify-center q-py-none">
+        <div class="col-11">
+          <div
+            :class="v$.password.value.minLength.$invalid || v$.password.value.required.$invalid ? 'red' : 'green'">
+            * at least 8 chars
+          </div>
+          <div :class="v$.password.value.containsNumber.$invalid ? 'red' : 'green'">
+            * at least 1 number
+          </div>
+          <div
+            :class="v$.password.value.containsUppercase.$invalid || v$.password.value.containsLowercase.$invalid ? 'red' : 'green'">
+            * at least one uppercase and one lowercase letter
+          </div>
+        </div>
+      </q-card-section>
+      <q-card-section>
+        <q-checkbox label="I agree to the terms" v-model="termsAgree" type="button"/>
+      </q-card-section>
+      <q-card-section>
+        <q-btn :disabled="!termsAgree" class="register-btn" label="Create An Account" @click="submit" type="button"/>
+      </q-card-section>
+      <q-card-section>
+        <q-btn class="google-btn" label="Sign Up with Google" @click="submit" type="button"/>
+      </q-card-section>
+    </q-card>
+  </div>
+</div>
+

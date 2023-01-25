@@ -1,0 +1,125 @@
+<div class="courses-page col justify-center">
+  <div class="row q-px-lg">
+    <h3 class="col-8">
+      All
+      <span style="color: #309255">Courses</span>
+      of Edule
+    </h3>
+    <div class="col-4 self-center">
+      <q-input outlined v-model="courseSearch" label="Search title of your course">
+        <template v-slot:append>
+          <q-icon name="search" class="cursor-pointer"/>
+        </template>
+      </q-input>
+    </div>
+  </div>
+  <div>
+    <q-carousel
+      v-model="slide"
+      transition-prev="scale"
+      transition-next="scale"
+      swipeable
+      animated
+      control-color="black"
+      navigation
+      padding
+      arrows
+      class="filter-carousel text-white shadow-1 rounded-borders"
+    >
+      <q-carousel-slide name="1" class="row no-wrap flex-center">
+
+        <q-btn label="All"
+               :class="filterCourses === 'None' ? 'active-filter-btn col-2' : 'filter-btn col-2'"
+               rounded
+               @click="filterCourses = 'None'"
+        ></q-btn>
+
+        <q-btn label="UI/UX Design"
+               :class="filterCourses === 'UI/UX Design' ? 'active-filter-btn col-2' : 'filter-btn col-2'"
+               rounded
+               @click="filterCourses = 'UI/UX Design'"
+        ></q-btn>
+
+        <q-btn label="Development"
+               :class="filterCourses === 'Development' ? 'active-filter-btn col-2' : 'filter-btn col-2'"
+               rounded
+               @click="filterCourses = 'Development'"
+        ></q-btn>
+
+        <q-btn label="Data Science"
+               :class="filterCourses === 'Data Science' ? 'active-filter-btn col-2' : 'filter-btn col-2'"
+               rounded
+               @click="filterCourses = 'Data Science'"
+        ></q-btn>
+
+        <q-btn label="Business"
+               :class="filterCourses === 'Business' ? 'active-filter-btn col-2' : 'filter-btn col-2'"
+               rounded
+               @click="filterCourses = 'Business'"
+        ></q-btn>
+      </q-carousel-slide>
+      <q-carousel-slide name="2" class="row no-wrap items-center">
+
+        <q-btn label="Financial"
+               :class="filterCourses === 'Financial' ? 'active-filter-btn col-2' : 'filter-btn col-2'"
+               rounded
+               @click="filterCourses = 'Financial'"
+        ></q-btn>
+
+        <q-btn label="Design"
+               :class="filterCourses === 'Design' ? 'active-filter-btn col-2' : 'filter-btn col-2'"
+               rounded
+               @click="filterCourses = 'Design'"
+        ></q-btn>
+
+        <q-btn label="Marketing"
+               :class="filterCourses === 'Marketing' ? 'active-filter-btn col-2' : 'filter-btn col-2'"
+               rounded
+               @click="filterCourses = 'Marketing'"
+        ></q-btn>
+      </q-carousel-slide>
+    </q-carousel>
+  </div>
+  <div class="row">
+    <div v-for="course in courseList" class="col-4 q-pa-lg">
+      <q-card :key="course.id" class="course-card q-pa-md column">
+        <q-img width="100%" height="250px" :src="course.img"/>
+        <div style="max-height: 20px" class="row q-mt-lg">
+          <div class="col-7">
+            {{course.instructor}}
+          </div>
+          <div class="col-5" dir="rtl">
+            <span class="tag">
+              {{course.tag}}
+            </span>
+          </div>
+        </div>
+        <h5>
+          {{course.title}}
+        </h5>
+        <div>
+          <q-icon name="schedule" style="color: #309255"></q-icon>
+          {{course.duration}}
+        </div>
+        <div class="course-price-box row q-mt-lg">
+          <div class="col-7">
+            <span class="text-bold" style="color: #309255">{{course.newPrice}}</span>
+            <s class="q-px-md">{{course.oldPrice}}</s>
+          </div>
+          <div class="col-5" dir="rtl">
+            <q-rating
+              v-model="course.star"
+              size="1.5em"
+            />
+          </div>
+        </div>
+        <div class="q-mt-lg" dir="rtl">
+          <q-btn label="Set Course" class="course-btn text-capitalize" rounded
+                 @click="setCourseForUser(course)"
+          ></q-btn>
+        </div>
+      </q-card>
+    </div>
+
+  </div>
+</div>
