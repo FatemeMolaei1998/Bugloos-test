@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # bugloos (bugloos)
 
 bugloos test
@@ -39,3 +40,7 @@ quasar build
 
 ### Customize the configuration
 See [Configuring quasar.config.js](https://v2.quasar.dev/quasar-cli-webpack/quasar-config-js).
+=======
+# Bugloos-test
+It is a test for Bugloos comany
+>>>>>>> 9290c9a3dc5cbb646ff5a104f42b4a526967673c
