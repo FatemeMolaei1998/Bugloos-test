@@ -10,14 +10,14 @@ import { getCookie } from 'assets/js/Utils'
 // ─── REGISTER USER ────────────────────────────────────────────────────────────
 //
 
-// export const requestRegisterUser = ({ commit }) =>
-//   commit(types.REQUEST_REGISTER_USER)
+export const requestRegisterUser = ({ commit }) =>
+  commit(types.REQUEST_REGISTER_USER)
 
 export const receiveRegisterUserSuccess = ({ commit }, data) =>
   commit(types.RECEIVE_REGISTER_USER_SUCCESS, data)
 
-// export const requestRegisterUserError = ({ commit }, error) =>
-//   commit(types.REQUEST_REGISTER_USER_ERROR, error)
+export const requestRegisterUserError = ({ commit }, error) =>
+  commit(types.REQUEST_REGISTER_USER_ERROR, error)
 
 export const registerUser = ({ state, dispatch }, data) => {
 
@@ -47,7 +47,8 @@ export const requestLogoutUser = ({ commit }, data) =>
   commit(types.REQUEST_LOGOUT_USER, data)
 
 export const logoutUser = ({ state, rootState, dispatch }) => {
-  document.cookie = "_rftk=''; SameSite=Lax; path=/"
+  document.cookie = "_rftk=; SameSite=Lax; path=/"
+  // state.isAuthenticated = false
   dispatch('requestLogoutUser', rootState)
 }
 

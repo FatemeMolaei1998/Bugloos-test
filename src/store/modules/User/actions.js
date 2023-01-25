@@ -17,8 +17,8 @@ export const requestAllCourses = ({ commit }) => commit(types.REQUEST_ALL_COURSE
 export const receiveAllCoursesSuccess = ({ commit }, data) =>
   commit(types.RECEIVE_ALL_COURSES_SUCCESS, data)
 
-// export const requestAllCoursesError = ({ commit }, error) =>
-//   commit(types.REQUEST_ALL_COURSES_ERROR, error)
+export const requestAllCoursesError = ({ commit }, error) =>
+  commit(types.REQUEST_ALL_COURSES_ERROR, error)
 
 export const getAllCourses = ({ state, dispatch }) => {
   // return new Promise((resolve, reject) => {
@@ -112,13 +112,13 @@ export const getAllCourses = ({ state, dispatch }) => {
 // ─── GET USER SALARIES ────────────────────────────────────────────────────────────
 //
 
-// export const requestUserCourses = ({ commit }) => commit(types.REQUEST_USER_COURSE)
+export const requestUserCourses = ({ commit }) => commit(types.REQUEST_USER_COURSE)
 
 export const receiveUserCoursesSuccess = ({ commit }, data) =>
   commit(types.RECEIVE_USER_COURSE_SUCCESS, data)
 
-// export const requestUserCoursesError = ({ commit }, error) =>
-//   commit(types.REQUEST_USER_COURSE_ERROR, error)
+export const requestUserCoursesError = ({ commit }, error) =>
+  commit(types.REQUEST_USER_COURSE_ERROR, error)
 
 export const getUserCourses = ({ state, dispatch }) => {
   // return new Promise((resolve, reject) => {
@@ -142,13 +142,13 @@ export const getUserCourses = ({ state, dispatch }) => {
 // ─── SET COURSE ────────────────────────────────────────────────────────────
 //
 
-// export const requestSetCourse = ({ commit }) => commit(types.REQUEST_SET_COURSE)
+export const requestSetCourse = ({ commit }) => commit(types.REQUEST_SET_COURSE)
 
-// export const receiveSetCourseSuccess = ({ commit }, data) =>
-//   commit(types.RECEIVE_SET_COURSE_SUCCESS, data)
+export const receiveSetCourseSuccess = ({ commit }, data) =>
+  commit(types.RECEIVE_SET_COURSE_SUCCESS, data)
 
-// export const requestSetCourseError = ({ commit }, error) =>
-//   commit(types.REQUEST_SET_COURSE_ERROR, error)
+export const requestSetCourseError = ({ commit }, error) =>
+  commit(types.REQUEST_SET_COURSE_ERROR, error)
 
 export const setCourse = ({ state, dispatch }, data) => {
   // return new Promise((resolve, reject) => {
