@@ -45,6 +45,7 @@ export default route(function ({ store }) {
     }
 
     if (refreshToken === '' && to.path.split('/')[1] !== 'register') {
+
       return next('/register')
     }
 
